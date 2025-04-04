@@ -4,3 +4,127 @@ ipython
 - mysqlclient
 - faker
 - django
+
+DBMS
+- 데이터 베이스 관리 시스템(저장을 위한)
+
+DB-Engines Ranking
+- DBMS 순위를 확인할 수 있음
+
+RDBMS(SQL)
+- 표로 저장하는 건 모두 → RDBMS
+- R을 이용한 데이터베이스 관리 시스템
+- 표 안에 있는 데이터를 조회할 때 씀
+
+NoSQL
+- document
+    - JSON, 표로 데이터 저장 X, 하나의 문서를 만들고 key-value로 데이터를 저장
+- graph
+- key-value
+- column store
+
+MYSQL 다운로드
+- MySQL Community Server 파일확장자
+- MySQL Workbench 프로그램명
+
+Worckbench 열어서 Query1에
+```markdown
+CREATE TABLE test (컬럼명);
+```
+; 이걸로 끝나야 문장 하나로 인식
+키워드는 대문자로만 써줌
+SQL에서는 마지막 컬럼명에 ‘,’ 사용하지 않음
+create-schema → 작업할 파일(db)만들기
+맨 위에 USE mydb; 사용할 DB를 지정
+
+```markdown
+CREATE TABLE test (
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    name TEXT,
+    age INTEGER
+);
+```
+
+각 키에 맞는 시트 생성
+항상 새로고침을 해줘야함(마우스로)
+폴더 만들기 - vscode로 열어주기 - workbench에서 저장
+주석: ‘—’
+
+sqlite3는 vscode 이용, 폴더 생성, sql파일 만들어주기
+확장프로그램 설치 - sqlite - 폴더에 db.sqlite3 직접 파일 생성, 테이블 생성 명령어 입력 후 마우스 우클릭 Command Palette, 0.DDL 내용 모두 드래그 후 RunQuery - db.sqlite3 파일 안에 테이블 생성되었음을 확인
+
+sqlite3는 프로그램이 필요 없이 파일만 있으면 됨
+mySQL은 프로그램이 필요함(워크벤치)
+→ 위의 두 작업은 같은 일을 한 것
+
+### 생성된 테이블 이름 바꾸기
+MySQL = ALTER TABLE (기존이름) RENAME TO (바꿀이름);
+
+### 컬럼 추가하기
+ALTER TABLE user ADD COLUMN eamil TEXT;
+
+### 컬럼명 변경
+mySQL : ALTER TABLE user CHANGE name username TEXT;
+sqlite : ALTER TABLE user RENAME COLUMN name TO username;
+
+### 테이블 삭제
+
+DROP TABLE user;
+
+# DML (데이터 조작 언어)
+
+- adsp 시험에 나옵니당
+
+vscode 에서 가상환경 설정한 후 pip install django faker
+
+프로젝트 생성 startproject .
+
+앱 생성 startapp 및 settings.py에 등록
+
+migrations는 번역 작업을 마련해주는 것
+
+migrate는 create table을 실행해주는 코드
+
+따라서 사용할 sql 프로그램이 달라질 때마다 해 줘야함
+
+→ 그래야 변경된 프로그램 안에 사용할 table을 가져와 생성되기 때문
+
+python [manage.py](http://manage.py) 의 명령어를 추가하기 위한 작업 = generate 라는 명령어
+
+management 폴더 안에 commands폴더를 만들고 그 폴더에 명령어.py를 만들면 실행 가능
+
+ㄴmanagement
+
+ㄴ commands(폴더)
+
+ㄴ__init__.py
+
+ㄴ__generate.py
+
+ㄴ__init__.py
+
+db를 잘못 선택한 경우 우클릭 - Use database
+
+AUTOINCREMENT = PRIMARY KEY(유니크한 값으로 찾아낼 수 있도록 생성) 자동으로 이전 인덱스값 +1을 생성
+
+venv 활성화 상태로 pip install django-extensions 라이브러리 설치 - [setting.py](http://setting.py)에 앱 등록
+
+python [manage.py](http://manage.py) shell_plus 
+
+pip install ipython
+
+→ ORM 문법으로 영화정보 insert
+
+INSERT INTO movies_movie (title, year) VALUES ('dark night', 2008);
+
+→ SQL 문법으로 영화정보 insert
+
+
+
+
+
+python manage.py shell_plus
+
+SQL 트랜젝션
+-> 어떻게 하면 데이터를 더 안전하게 사용할 수 있을까
+롤백..?

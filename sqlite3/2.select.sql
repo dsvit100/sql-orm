@@ -95,3 +95,5 @@ WHERE age BETWEEN 20 AND 29;
 -- __in = 내가 주는 데이터와 일치하는 것들
 SELECT * FROM movies_movie
 WHERE year IN (2000, 2005, 2010);
+
+table과 table을 섞어서 필터링 = join
